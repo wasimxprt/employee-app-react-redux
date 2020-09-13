@@ -40,3 +40,6 @@ textarea.materialize-textarea:focus:not([readly]) {
   border-color: #ec407a;
   box-shadow: none;
 }
+.collapsible-header{
+  cursor: default;
+}
