@@ -1,7 +1,7 @@
 const initialState = {
     employees: [
-         { id: 1, fname: 'Wasim', lname: 'Sayyed',designation: 'Software Engineer',hireDate: '02-02-2018',skills: 'html,css,javascript' },
-         { id: 2, fname: 'Wasim', lname: 'Sayyed',designation: 'Software Engineer',hireDate: '02-02-2018',skills: 'Java,docker,devops' }
+        { id: "aed3", fname: 'Wasim', lname: 'Sayyed', designation: 'Service Delivery Engineer', hireDate: '02-02-2018', skills: 'HTML,CSS,JavaScript,Angular,React,Redux' },
+        { id: "sde2", fname: 'John', lname: 'Doe', designation: 'Senior Software Engineer', hireDate: '02-10-2020', skills: 'Java EE,Springboot,Kubernetes' }
     ]
 }
 
@@ -17,10 +17,8 @@ const employeeReducer = (state = initialState, action) => {
             }
         case "ADD_EMPLOYEE":
 
-            let obj = {id: Math.random().toString(16).slice(-4)};
-            let employee = {...action.payload, ...obj};
-            
-            //Object.assign(student, {id: id});
+            let obj = { id: Math.random().toString(16).slice(-4) };
+            let employee = { ...action.payload, ...obj };
             employees.push(employee);
 
             return {
@@ -28,9 +26,11 @@ const employeeReducer = (state = initialState, action) => {
                 employees: employees
             }
 
-        case "GET_STUDENTS":
+        case "DELETE_EMPLOYEE":
+            let newEmployees = employees.filter(employee => employee.id != action.payload);
             return {
-                ...state
+                ...state,
+                employees: newEmployees
             }
         default:
             return state;

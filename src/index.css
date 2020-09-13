@@ -18,6 +18,11 @@ code {
     monospace;
 }
 
+a{
+  color: #424242;
+  cursor: pointer;
+}
+
 form {
   padding: 20px;
   margin: 40px auto;

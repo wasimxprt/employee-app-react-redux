@@ -32,7 +32,8 @@ function SearchEmployee(props) {
                 </div>
 
                 <div className="input-field">
-                    <button type="submit" className="btn pink lighten-1 z-depth-0">Search</button>
+                    <button className="btn pink waves-effect waves-light" type="submit" name="action">Search<i className="material-icons right">send</i></button>
+
                 </div>
                 {searchResult && searchResult.length ? <SearchResult employeeList={searchResult} isSearchResult={true} /> : null}
 

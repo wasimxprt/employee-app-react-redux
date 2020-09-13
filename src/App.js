@@ -5,6 +5,7 @@ import AddEmployee from './components/employee/AddEmployee';
 import EmployeeList from './components/employee/EmployeeList';
 import Footer from './components/layout/Footer';
 import SearchEmployee from './components/employee/SearchEmployee';
+import EmployeeDetails from './components/employee/EmployeeDetails';
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
         <Switch>
         <Route exact path='/' component={EmployeeList}></Route>
           <Route path='/employee/:id' component={Navbar}></Route>
+          <Route path='/profile/:id' component={EmployeeDetails}></Route>
           <Route path='/create' component={AddEmployee}></Route>
           <Route path='/search' component={SearchEmployee}></Route>
         </Switch>

@@ -1,19 +1,24 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import employeeActions from "../../store/actions/employeeActions";
 import { useDispatch } from 'react-redux';
-import {Redirect} from 'react-router-dom';
+import { useHistory } from "react-router-dom";
+import Materialize from "materialize-css";
 
 
 function AddEmployee(props) {
 
+    let history = useHistory();
     const dispatch = useDispatch();
+
     const [values, setValues] = useState({
         fname: "",
         lname: "",
-        designation:"",
-        hireDate:"",
-        skills:""
+        designation: "",
+        hireDate: "",
+        skills: ""
     });
+
+    const [dateVal, setDateVal] = useState(new Date())
 
     const changeHandler = (event) => {
         setValues({
@@ -23,8 +28,30 @@ function AddEmployee(props) {
     }
     const submitHandler = (e) => {
         e.preventDefault();
-        dispatch(employeeActions.addEmployee(values));
+        let inputValues = {
+            ...values,
+            hireDate: document.getElementById("hireDate").value
+        }
+        dispatch(employeeActions.addEmployee(inputValues));
+        history.push("/");
     }
+
+
+    useEffect(() => {
+        var context = this;
+        var elems = document.querySelectorAll(".dateset");
+        Materialize.Datepicker.init(elems, {
+            defaultDate: new Date(),
+            format: "dd-mm-yyyy",
+            container: "body",
+            onSelect: function (date) {
+            },
+            autoClose: true,
+            maxDate:new Date()
+        });
+
+    }, []);
+
     return (
         <div className="container">
             <form onSubmit={submitHandler} action="" className="white">
@@ -43,14 +70,20 @@ function AddEmployee(props) {
                 </div>
                 <div className="input-field">
                     <label htmlFor="title">Hiring Date</label>
-                    <input type="text" id="hireDate" name="hireDate" value={values.hireDate} onChange={changeHandler} />
+                    <input
+                        id="hireDate"
+                        name="hireDate"
+                        type="text"
+                        className="datepicker dateset"
+                    />
+                    {/* <input type="text" id="hireDate" className="datepicker dateset" name="hireDate" value={values.hireDate} onChange={changeHandler} /> */}
                 </div>
                 <div className="input-field">
-                    <label htmlFor="content">Skills</label>
+                    <label htmlFor="content">Skills Ex: C,C++</label>
                     <textarea name="skills" id="skills" className="materialize-textarea" onChange={changeHandler}></textarea>
                 </div>
                 <div className="input-field">
-                    <button type="submit" className="btn pink lighten-1 z-depth-0">Submit</button>
+                    <button className="btn pink waves-effect waves-light" type="submit" name="action">Submit<i className="material-icons right">send</i></button>
                 </div>
             </form>
         </div>

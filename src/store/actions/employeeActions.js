@@ -21,8 +21,17 @@ const getEmployees = () => {
     }
 }
 
+const deleteEmployee = (employeeId) => {
+    
+    return {
+        type: actions.DELETE_EMPLOYEE,
+        payload: employeeId
+    }
+}
+
 export default {
     setEmployees,
     getEmployees,
-    addEmployee
+    addEmployee,
+    deleteEmployee
 }
