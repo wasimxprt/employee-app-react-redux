@@ -47,7 +47,7 @@ function AddEmployee(props) {
             onSelect: function (date) {
             },
             autoClose: true,
-            maxDate:new Date()
+            maxDate: new Date()
         });
 
     }, []);

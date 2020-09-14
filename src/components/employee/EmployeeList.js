@@ -11,7 +11,7 @@ function EmployeeList(props) {
         <div className="container">
             <form className="white">
                 {employeeList && employeeList.length > 0 ?
-                    <table className="highlight">
+                    <table className="highlight responsive-table">
                         <thead>
                             <tr>
                                 <th data-field="fname">First Name</th>
