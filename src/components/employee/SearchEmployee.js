@@ -28,7 +28,7 @@ function SearchEmployee(props) {
                 <h5 className="grey-text text-darken-3">Search Employee</h5>
                 <div className="input-field">
                     <label htmlFor="title">Enter skill</label>
-                    <input type="text" id="searchStr" name="searchStr" value={searchStr} onChange={changeHandler} />
+                    <input type="text" className="searchStr" autoFocus id="searchStr" name="searchStr" value={searchStr} onChange={changeHandler} />
                 </div>
 
                 <div className="input-field">

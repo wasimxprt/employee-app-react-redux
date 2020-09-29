@@ -58,15 +58,15 @@ function AddEmployee(props) {
                 <h5 className="grey-text text-darken-3">Add Employee</h5>
                 <div className="input-field">
                     <label htmlFor="title">First Name</label>
-                    <input type="text" id="fname" name="fname" value={values.fname} onChange={changeHandler} />
+                    <input type="text" autoFocus className="fname" id="fname" name="fname" value={values.fname} onChange={changeHandler} />
                 </div>
                 <div className="input-field">
                     <label htmlFor="title">Last Name</label>
-                    <input type="text" id="lname" name="lname" value={values.lname} onChange={changeHandler} />
+                    <input type="text" className="lname" id="lname" name="lname" value={values.lname} onChange={changeHandler} />
                 </div>
                 <div className="input-field">
                     <label htmlFor="title">Designation</label>
-                    <input type="text" id="designation" name="designation" value={values.designation} onChange={changeHandler} />
+                    <input type="text" className="designation" id="designation" name="designation" value={values.designation} onChange={changeHandler} />
                 </div>
                 <div className="input-field">
                     <label htmlFor="title">Hiring Date</label>
@@ -74,7 +74,7 @@ function AddEmployee(props) {
                         id="hireDate"
                         name="hireDate"
                         type="text"
-                        className="datepicker dateset"
+                        className="datepicker dateset hireDate"
                     />
                     {/* <input type="text" id="hireDate" className="datepicker dateset" name="hireDate" value={values.hireDate} onChange={changeHandler} /> */}
                 </div>
