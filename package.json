@@ -2,10 +2,12 @@
   "name": "employees-app",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://wasimxprt.github.io/employee-app-react-redux",
   "dependencies": {
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.5.0",
     "@testing-library/user-event": "^7.2.1",
+    "gh-pages": "^3.1.0",
     "materialize-css": "^1.0.0-rc.2",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
@@ -21,7 +23,9 @@
     "build": "react-scripts build",
     "test": "node_modules\\.bin\\cypress run",
     "eject": "react-scripts eject",
-    "cypress":"cypress open"
+    "cypress": "cypress open",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": "react-app"
